@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PostResource extends Resource{
 
-    protected static ?string $navigationLabel = 'Bài viết';
+    protected static ?string $navigationLabel = 'Bài Viết';
 
     protected static ?string $model = Post::class;
 

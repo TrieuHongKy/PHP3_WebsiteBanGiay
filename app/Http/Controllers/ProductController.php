@@ -16,8 +16,7 @@ class ProductController extends Controller
     {
         $product = Product::paginate(6);
         $product_cate = ProductCategory::all();
-//        $product = DB::table('products')->where('id', $id)->get();
-//        $data = ['id'=>$id, 'product'=>$product];
+
         return view("/client/pages/product",compact('product','product_cate'));
     }
 

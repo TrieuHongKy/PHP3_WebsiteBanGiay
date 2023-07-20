@@ -26,7 +26,7 @@ Route::get('/product', [ProductController::class,'index']);
 Route::get('/product-category/{id}', [ProductController::class,'product_cate']);
 Route::get('/product-detail/{id}', [ProductController::class,'show']);
 Route::get('/cart', [CartController::class,'index']);
-Route::get('/cart/add', 'CartController@addCart')->name('cart.add');
+Route::post('/addCart', [CartController::class,'addCart']);
 Route::get('/about', function () {
     return view('client/pages/about');
 });

@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CategoryResource extends Resource
 {
-    protected static ?string $navigationLabel = 'Loại bài viết';
+    protected static ?string $navigationLabel = 'Loại Bài Viết';
 
     protected static ?string $model = Category::class;
 

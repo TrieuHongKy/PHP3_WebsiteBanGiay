@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Redirect;
+session_start();
 class CartController extends Controller
 {
     /**
@@ -12,37 +16,24 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view("/client/pages/cart");
+        $carts = Cart::all();
+        return view("/client/pages/cart",['carts'=>$carts]);
     }
 
     public function addCart(Request $request)
     {
-        $productId = $request->input('product_id');
-        $quantity = $request->input('quantity');
+        $cart = new Cart();
+        $cart->product_id = $request->input('product_id');
+        $cart->product_name = $request->input('product_name');
+        $cart->price = $request->input('price');
+        $cart->image = $request->input('image');
+        $cart->quantity = $request->input('quantity');
+        $cart->save();
 
-        // Kiểm tra xem sản phẩm có tồn tại không
-        $product = Product::find($productId);
-        if (!$product) {
-            return response()->json(['error' => 'Sản phẩm không tồn tại'], 404);
-        }
+        // Thực hiện các hành động khác (redirect, thông báo thành công, vv.) nếu cần thiết
 
-        // Thêm sản phẩm vào giỏ hàng
-        $cart = $this->getCartFromSession(); // Hàm này sẽ được triển khai để lấy giỏ hàng từ session
-        $cart->addItem($product, $quantity); // Phương thức này sẽ được triển khai trong mô hình giỏ hàng của bạn
+        return redirect('/cart')->with('success', 'Sản phẩm đã được thêm vào giỏ hàng');
 
-        // Lưu lại giỏ hàng vào session
-        $this->saveCartToSession($cart); // Hàm này sẽ được triển khai để lưu giỏ hàng vào session
-
-        // Phản hồi với thông tin chi tiết sản phẩm đã được thêm vào giỏ hàng
-        return response()->json([
-            'message' => 'Sản phẩm đã được thêm vào giỏ hàng',
-            'item' => [
-                'id' => $product->id,
-                'name' => $product->name,
-                'quantity' => $quantity,
-                // Thêm các thuộc tính sản phẩm khác tại đây (vd: giá, ảnh, mô tả, ...)
-            ],
-        ]);
     }
 
     /**

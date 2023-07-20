@@ -45,16 +45,16 @@
 @extends('client/layouts/header')
 
 <!-- Content -->
-@yield('home')
-@yield('about')
-@yield('cart')
-@yield('contact')
-@yield('post')
-@yield('post-detail')
-@yield('product')
-@yield('product-detail')
-@yield('login')
-{{--@yield('profile')--}}
+    @yield('home')
+    @yield('about')
+    @yield('cart')
+    @yield('contact')
+    @yield('post')
+    @yield('post-detail')
+    @yield('product')
+    @yield('product-detail')
+    @yield('login')
+    @yield('profile')
 
 
 <!-- Footer -->

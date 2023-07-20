@@ -16,7 +16,7 @@ use Filament\Forms\Components\FileUpload;
 
 class ProductCategoryResource extends Resource
 {
-    protected static ?string $navigationLabel = 'Loại sản phẩm';
+    protected static ?string $navigationLabel = 'Loại Sản Phẩm';
 
     protected static ?string $model = ProductCategory::class;
 

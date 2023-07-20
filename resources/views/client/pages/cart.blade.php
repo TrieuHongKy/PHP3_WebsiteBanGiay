@@ -5,6 +5,9 @@
 <section style="margin-top:120px" class="cart bgwhite p-t-70 p-b-100">
     <div class="container">
         <!-- Cart item -->
+        @if($carts->isEmpty())
+            <p>Không có sản phẩm trong giỏ hàng.</p>
+        @else
         <div class="container-table-cart pos-relative">
             <div class="wrap-table-shopping-cart bgwhite">
                 <table class="table-shopping-cart">
@@ -16,29 +19,31 @@
                         <th class="column-5">Tổng cộng</th>
                     </tr>
 
-                    <tr class="table-row">
-                        <td class="column-1">
-                            <div class="cart-img-product b-rad-4 o-f-hidden">
-                                <img src="/assets/images/item-nb2.jpg" alt="IMG-PRODUCT">
-                            </div>
-                        </td>
-                        <td class="column-2">GIÀY NIKE SB DUNK</td>
-                        <td class="column-3">7.200.000đ</td>
-                        <td class="column-4">
-                            <div class="flex-w bo5 of-hidden w-size17">
-                                <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
-                                    <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
-                                </button>
+                    @foreach($carts as $d)
+                        <tr class="table-row">
+                            <td class="column-1">
+                                <div class="cart-img-product b-rad-4 o-f-hidden">
+                                    <img src="/storage/{{$d->image}}" alt="IMG-PRODUCT">
+                                </div>
+                            </td>
+                            <td class="column-2">{{$d->product_name}}</td>
+                            <td class="column-3">{{$d->price}}</td>
+                            <td class="column-4">
+                                <div class="flex-w bo5 of-hidden w-size17">
+                                    <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
+                                        <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
+                                    </button>
 
-                                <input class="size8 m-text18 t-center num-product" type="number" name="num-product1" value="1">
+                                    <input class="size8 m-text18 t-center num-product" type="number" name="num-product1" value="{{$d->quantity}}">
 
-                                <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
-                                    <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </td>
-                        <td class="column-5">7.200.000đ</td>
-                    </tr>
+                                    <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
+                                        <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="column-5">{{$d->total}}</td>
+                        </tr>
+                    @endforeach
 
                 </table>
             </div>
@@ -140,6 +145,7 @@
                 </button>
             </div>
         </div>
+        @endif
     </div>
 </section>
     @endsection

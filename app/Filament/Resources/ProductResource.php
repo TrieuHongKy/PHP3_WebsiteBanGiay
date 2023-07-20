@@ -41,6 +41,9 @@ class ProductResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('view')
                     ->required(),
+                Forms\Components\TextInput::make('quantity')
+                    ->required()
+                    ->default(1),
                 Forms\Components\Select::make('category_id')
                     ->relationship('category','name')
                     ->required(),
@@ -59,6 +62,7 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('price'),
+                Tables\Columns\TextColumn::make('quantity'),
                 Tables\Columns\TextColumn::make('view'),
                 Tables\Columns\TextColumn::make('category.name'),
                 Tables\Columns\TextColumn::make('description'),
