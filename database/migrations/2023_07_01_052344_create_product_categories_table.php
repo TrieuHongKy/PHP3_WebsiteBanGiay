@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('product_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name',255)->unique();
+            $table->string('slug',255)->unique();
             $table->text('description')->nullable();
-            $table->string('image',255)->nullable();
-            $table->boolean('status');
             $table->timestamps();
         });
     }

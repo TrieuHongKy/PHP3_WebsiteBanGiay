@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('carts', function (Blueprint $table) {
-            $table->double('total');
+        Schema::create('widgets', function (Blueprint $table) {
+            $table->id();
+            $table->string('name',255)->unique();
+            $table->string('image')->unique();
+            $table->longtext('description')->limit(100)->nullable();
+            $table->timestamps();
         });
     }
 
@@ -21,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('carts', function ($table) {
-            $table->dropColumn('total');
-        });
+        Schema::dropIfExists('widgets');
     }
 };

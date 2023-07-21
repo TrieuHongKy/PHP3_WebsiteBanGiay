@@ -14,8 +14,13 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title',255)->unique();
+            $table->string('slug',255)->unique();
             $table->text('content')->nullable();
-            $table->string('author', 255)->nullable();
+            $table->unsignedBigInteger('author');
+            $table->foreign('author')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade');
             $table->date('date')->nullable();
             $table->string('image',255)->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
