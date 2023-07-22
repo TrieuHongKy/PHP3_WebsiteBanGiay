@@ -26,7 +26,7 @@
                     <div class="p-r-50 p-r-0-lg">
                         <div class="p-b-40">
                             <div class="blog-detail-img wrap-pic-w">
-                                <img src="/storage/{{$p->image}}" alt="IMG-BLOG">
+                                <img src="/storage/posts/{{$p->image}}" alt="IMG-BLOG">
                             </div>
 
                             <div class="blog-detail-txt p-t-33">
@@ -36,7 +36,7 @@
 
                                 <div class="s-text8 flex-w flex-m p-b-21">
 									<span>
-										Bởi {{$p->author}}
+										Bởi {{$p->author_id}}
 										<span class="m-l-3 m-r-6">|</span>
 									</span>
 

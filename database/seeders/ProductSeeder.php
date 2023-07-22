@@ -14,20 +14,105 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         DB::table('products')->insert([
-            ['name'=>'Giày số 1','slug'=>'san-pham-so-1','quantity'=>'21','price'=>'310000','category_id'=>'2','description'=>'Giày số 1','view'=>'712','image'=>'photo-1542291026-7eec264c27ff.avif','created_at'=>Now(),'updated_at'=>Now()],
-            ['name'=>'Giày số 2','slug'=>'san-pham-so-2','quantity'=>'41','price'=>'320000','category_id'=>'3','description'=>'Giày số 2','view'=>'312','image'=>'photo-1549298916-b41d501d3772.avif','created_at'=>Now(),'updated_at'=>Now()],
-            ['name'=>'Giày số 3','slug'=>'san-pham-so-3','quantity'=>'25','price'=>'330000','category_id'=>'4','description'=>'Giày số 3','view'=>'788','image'=>'photo-1551107696-a4b0c5a0d9a2.avif','created_at'=>Now(),'updated_at'=>Now()],
-            ['name'=>'Giày số 4','slug'=>'san-pham-so-4','quantity'=>'86','price'=>'340000','category_id'=>'5','description'=>'Giày số 4','view'=>'633','image'=>'photo-1491553895911-0055eca6402d.avif','created_at'=>Now(),'updated_at'=>Now()],
-            ['name'=>'Giày số 5','slug'=>'san-pham-so-5','quantity'=>'14','price'=>'350000','category_id'=>'6','description'=>'Giày số 5','view'=>'516','image'=>'photo-1515955656352-a1fa3ffcd111.avif','created_at'=>Now(),'updated_at'=>Now()],
-            ['name'=>'Giày số 6','slug'=>'san-pham-so-6','quantity'=>'25','price'=>'360000','category_id'=>'1','description'=>'Giày số 6','view'=>'910','image'=>'photo-1516478177764-9fe5bd7e9717.avif','created_at'=>Now(),'updated_at'=>Now()],
-            ['name'=>'Giày số 7','slug'=>'san-pham-so-7','quantity'=>'18','price'=>'370000','category_id'=>'1','description'=>'Giày số 7','view'=>'816','image'=>'photo-1587563871167-1ee9c731aefb.avif','created_at'=>Now(),'updated_at'=>Now()],
-            ['name'=>'Giày số 8','slug'=>'san-pham-so-8','quantity'=>'66','price'=>'380000','category_id'=>'3','description'=>'Giày số 8','view'=>'627','image'=>'photo-1595341888016-a392ef81b7de.avif','created_at'=>Now(),'updated_at'=>Now()],
-            ['name'=>'Giày số 9','slug'=>'san-pham-so-9','quantity'=>'54','price'=>'390000','category_id'=>'2','description'=>'Giày số 9','view'=>'918','image'=>'photo-1596702874230-b5706dfb5bc7.avif','created_at'=>Now(),'updated_at'=>Now()],
-            ['name'=>'Giày số 10','slug'=>'san-pham-so-10','quantity'=>'87','price'=>'400000','category_id'=>'4','description'=>'Giày số 10','view'=>'613','image'=>'photo-1562183241-840b8af0721e.avif','created_at'=>Now(),'updated_at'=>Now()],
-            ['name'=>'Giày số 11','slug'=>'san-pham-so-11','quantity'=>'15','price'=>'410000','category_id'=>'4','description'=>'Giày số 11','view'=>'319','image'=>'photo-1600185365926-3a2ce3cdb9eb.avif','created_at'=>Now(),'updated_at'=>Now()],
-            ['name'=>'Giày số 12','slug'=>'san-pham-so-12','quantity'=>'6','price'=>'420000','category_id'=>'5','description'=>'Giày số 12','view'=>'726','image'=>'photo-1605034313761-73ea4a0cfbf3.avif','created_at'=>Now(),'updated_at'=>Now()],
-            ['name'=>'Giày số 13','slug'=>'san-pham-so-13','quantity'=>'27','price'=>'430000','category_id'=>'6','description'=>'Giày số 13','view'=>'671','image'=>'photo-1606107557195-0e29a4b5b4aa.avif','created_at'=>Now(),'updated_at'=>Now()],
-            ['name'=>'Giày số 14','slug'=>'san-pham-so-14','quantity'=>'53','price'=>'440000','category_id'=>'6','description'=>'Giày số 14','view'=>'846','image'=>'photo-1612902377756-414b2139d5e2.avif','created_at'=>Now(),'updated_at'=>Now()],
+            [
+                'name'=>'Giày Black Nike ',
+                'slug'=>'giay-black-nike',
+                'quantity'=>'6',
+                'price'=>'420000',
+                'category_id'=>'1',
+                'description'=>'Giày Nike đen chính hãng, sang trọng',
+                'view'=>'426',
+                'image'=>'photo-1543508282-6319a3e2621f.avif',
+                'created_at'=>Now(),'updated_at'=>Now()
+            ],
+            [
+                'name'=>'Giày Adidas Custom F1',
+                'slug'=>'giay-adidas-custom-f1',
+                'quantity'=>'9',
+                'price'=>'730000',
+                'category_id'=>'1',
+                'description'=>'Giày số 12',
+                'view'=>'616',
+                'image'=>'photo-1595341888016-a392ef81b7de.avif',
+                'created_at'=>Now(),'updated_at'=>Now()
+            ],
+            [
+                'name'=>'Adidas Red1 MS',
+                'slug'=>'adidas-red1-ms',
+                'quantity'=>'9',
+                'price'=>'920000',
+                'category_id'=>'1',
+                'description'=>'Giày adidas red 1 ms',
+                'view'=>'726',
+                'image'=>'photo-1575537302964-96cd47c06b1b.avif',
+                'created_at'=>Now(),'updated_at'=>Now()
+            ],
+            [
+                'name'=>'Kính mát Sayho Mytux',
+                'slug'=>'kinh-mat-sayho-mytux',
+                'quantity'=>'11',
+                'price'=>'420000',
+                'category_id'=>'2',
+                'description'=>'Giày số 12',
+                'view'=>'116',
+                'image'=>'photo-1574258495973-f010dfbb5371.avif',
+                'created_at'=>Now(),'updated_at'=>Now()
+            ],
+            [
+                'name'=>'Kính Gọng Đen BlackMX Sang Trọng',
+                'slug'=>'kinh-hong-den-blackmx-sang-trong',
+                'quantity'=>'7',
+                'price'=>'710000',
+                'category_id'=>'2',
+                'description'=>'Kính gọn đen thanh lịch, sang trọng',
+                'view'=>'926',
+                'image'=>'photo-1556306510-31ca015374b0.avif',
+                'created_at'=>Now(),'updated_at'=>Now()
+            ],
+            [
+                'name'=>'Kính Gọng Hồng Quý Phái',
+                'slug'=>'king-gong-hong-quy-phai',
+                'quantity'=>'20',
+                'price'=>'290000',
+                'category_id'=>'2',
+                'description'=>'Kính gọng hồng',
+                'view'=>'926',
+                'image'=>'photo-1582142407894-ec85a1260a46.avif',
+                'created_at'=>Now(),'updated_at'=>Now()
+            ],
+            [
+                'name'=>'Túi xách da Kaimy OX',
+                'slug'=>'tui-xach-da-kaimy-ox',
+                'quantity'=>'2',
+                'price'=>'1420000',
+                'category_id'=>'3',
+                'description'=>'Túi xách da sang trọng, phù hợp làm quà cho các nàng',
+                'view'=>'1126',
+                'image'=>'photo-1605733513597-a8f8341084e6.avif',
+                'created_at'=>Now(),'updated_at'=>Now()
+            ],
+            [
+                'name'=>'Túi xách Hotiwa Xanh Nhỏ Gọn',
+                'slug'=>'tui-xach-hotiwa-xanh-nho-gon',
+                'quantity'=>'6',
+                'price'=>'1920000',
+                'category_id'=>'3',
+                'description'=>'Túi xách Hotiwa Xanh Nhỏ Gọn',
+                'view'=>'816',
+                'image'=>'photo-1632282003890-020318a49e62.avif',
+                'created_at'=>Now(),'updated_at'=>Now()
+            ],
+            [
+                'name'=>'Mẫu túi mới nhà Prada XP7 ',
+                'slug'=>'mau-tui-moi-nha-prada-xp7',
+                'quantity'=>'3',
+                'price'=>'2420000',
+                'category_id'=>'3',
+                'description'=>'Mẫu túi mới nhà Prada XP7',
+                'view'=>'1026',
+                'image'=>'photo-1620999590313-0b243aa9f740.avif',
+                'created_at'=>Now(),'updated_at'=>Now()
+            ]
         ]);
     }
 }

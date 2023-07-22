@@ -14,7 +14,7 @@ class Post extends Model
         'title',
         'content',
         'category_id',
-        'author',
+        'author_id',
         'date',
         'image'
     ];

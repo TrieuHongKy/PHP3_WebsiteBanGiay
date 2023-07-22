@@ -10,7 +10,7 @@
                         @foreach($post as $p)
                             <div class="item-blog p-b-80">
                                 <a href="{{url('/post-detail',[$p->id])}}" class="item-blog-img pos-relative dis-block hov-img-zoom">
-                                    <img src="storage/{{$p->image}}" alt="IMG-BLOG">
+                                    <img src="storage/posts/{{$p->image}}" alt="IMG-BLOG">
 
                                     <span class="item-blog-date dis-block flex-c-m pos1 size17 bg4 s-text1">
 									{{$p->date}}
@@ -33,10 +33,6 @@
                                         <span>
 										{{$p->category_id}}
 										<span class="m-l-3 m-r-6">|</span>
-									</span>
-
-                                        <span>
-										8 Bình Luận
 									</span>
                                     </div>
 
@@ -93,7 +89,7 @@
                             @foreach($featuredProducts as $prod)
                                 <li class="flex-w p-b-20">
                                     <a href="{{url('/product-detail',[$prod->id])}}" class="dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4">
-                                        <img style="height:100px" src="/storage/{{$prod->image}}" alt="IMG-PRODUCT">
+                                        <img style="height:100px" src="/storage/products/{{$prod->image}}" alt="IMG-PRODUCT">
                                     </a>
 
                                     <div class="w-size23 p-t-5">
