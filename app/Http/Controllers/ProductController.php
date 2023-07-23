@@ -47,10 +47,10 @@ class ProductController extends Controller
      * Display the specified resource.
      */
 //    public function show($id = 0)
-        public function show($id=0)
+        public function show($slug)
     {
-        $product = DB::table('products')->where('id', $id)->get();
-        $data = ['id'=>$id,'product'=>$product];
+        $product = DB::table('products')->where('slug', $slug)->get();
+        $data = ['slug'=>$slug,'product'=>$product];
 //        $prod = DB::table('products')->where('id',$id)->first();
 //        $data = ['id'=>$id,'prod'=>$prod];
 //        return view("/client/pages/product-detail",$data);

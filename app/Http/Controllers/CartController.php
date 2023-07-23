@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
@@ -22,17 +23,18 @@ class CartController extends Controller
 
     public function addCart(Request $request)
     {
-        $cart = new Cart();
-        $cart->product_id = $request->input('product_id');
-        $cart->product_name = $request->input('product_name');
-        $cart->price = $request->input('price');
-        $cart->image = $request->input('image');
-        $cart->quantity = $request->input('quantity');
-        $cart->save();
 
-        // Thực hiện các hành động khác (redirect, thông báo thành công, vv.) nếu cần thiết
-
-        return redirect('/cart')->with('success', 'Sản phẩm đã được thêm vào giỏ hàng');
+//        $cart = new Cart();
+//        $cart->product_id = $request->input('product_id');
+//        $cart->product_name = $request->input('product_name');
+//        $cart->price = $request->input('price');
+//        $cart->image = $request->input('image');
+//        $cart->quantity = $request->input('quantity');
+//        $cart->save();
+//
+//        // Thực hiện các hành động khác (redirect, thông báo thành công, vv.) nếu cần thiết
+//
+//        return redirect('/cart')->with('success', 'Sản phẩm đã được thêm vào giỏ hàng');
 
     }
 

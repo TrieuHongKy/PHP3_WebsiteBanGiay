@@ -115,7 +115,7 @@
                                     </div>
 
                                     <div class="block2-txt p-t-20">
-                                        <a href="{{url('/product-detail',[$prod->id])}}" class="block2-name dis-block s-text3 p-b-5">
+                                        <a href="{{url('/product-detail',[$prod->slug])}}" class="block2-name dis-block s-text3 p-b-5">
                                             {{$prod->name}}
                                         </a>
 

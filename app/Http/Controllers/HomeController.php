@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Widget;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -12,9 +14,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $widgets = Widget::all();
         $featuredProducts = (new ProductController())->getFeaturedProducts();
         $getPost = (new PostController())->getPost();
-        return view("/client/pages/home",['featuredProducts' => $featuredProducts,'getPost'=>$getPost]);
+        return view("/client/pages/home",['widgets'=>$widgets,'featuredProducts' => $featuredProducts,'getPost'=>$getPost]);
     }
 
 //    public function checkUserType(){

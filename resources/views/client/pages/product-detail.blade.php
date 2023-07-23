@@ -2,7 +2,7 @@
 @section('product-detail')
     <!-- breadcrumb -->
     <div style="margin-top:140px" class="bread-crumb bgwhite flex-w p-l-52 p-r-15 p-t-30 p-l-15-sm">
-        <a href="index.html" class="s-text16">
+        <a href="{{url('/')}}" class="s-text16">
             Trang chủ
             <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
         </a>

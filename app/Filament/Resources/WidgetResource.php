@@ -2,10 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ProductCategoryResource\Pages;
-use App\Filament\Resources\ProductCategoryResource\RelationManagers;
-use App\Models\ProductCategory;
-use Closure;
+use App\Filament\Resources\WidgetResource\Pages;
+use App\Filament\Resources\WidgetResource\RelationManagers;
+use App\Models\Widget;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -13,16 +12,12 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\FileUpload;
-use Illuminate\Support\Str;
 
-class ProductCategoryResource extends Resource
+class WidgetResource extends Resource
 {
-    protected static ?string $navigationLabel = 'Loại Sản Phẩm';
+    protected static ?string $model = Widget::class;
 
-    protected static ?string $model = ProductCategory::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
+    protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
     {
@@ -30,15 +25,12 @@ class ProductCategoryResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required()
-                    ->maxLength(255)
-                    ->reactive()
-                    ->afterStateUpdated(function (Closure $set, $state) {
-                        $set('slug', Str::slug($state));
-                    }),
-                Forms\Components\TextInput::make('slug')
-                                          ->required(),
-                Forms\Components\Textarea::make('description')
-                    ->maxLength(65535),
+                    ->unique()
+                    ->maxLength(255),
+                Forms\Components\FileUpload::make('image')
+                    ->required()
+                    ->unique(),
+                Forms\Components\Textarea::make('description'),
             ]);
     }
 
@@ -46,9 +38,8 @@ class ProductCategoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id'),
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('slug'),
+                Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('description'),
             ])
             ->filters([
@@ -66,7 +57,7 @@ class ProductCategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageProductCategories::route('/'),
+            'index' => Pages\ManageWidgets::route('/'),
         ];
     }    
 }

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title',255)->unique();
-            $table->string('slug',255)->unique();
-            $table->text('content')->nullable();
+            $table->string('title',255)->unique()->limit(50);
+            $table->string('slug',255)->unique()->limit(50);
+            $table->text('content')->nullable()->limit(100);
             $table->unsignedBigInteger('author_id');
             $table->foreign('author_id')
                   ->references('id')

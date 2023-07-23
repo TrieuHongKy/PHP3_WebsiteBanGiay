@@ -39,10 +39,10 @@ class ProductResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('price')
                     ->required(),
+                Forms\Components\TextInput::make('total'),
                 Forms\Components\TextInput::make('view')
-                    ->required(),
+                    ->default(1),
                 Forms\Components\TextInput::make('quantity')
-                    ->required()
                     ->default(1),
                 Forms\Components\Select::make('category_id')
                     ->relationship('category','name')
@@ -67,10 +67,6 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('category.name'),
                 Tables\Columns\TextColumn::make('description'),
                 Tables\Columns\TextColumn::make('slug'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
             ])
             ->filters([
                 //

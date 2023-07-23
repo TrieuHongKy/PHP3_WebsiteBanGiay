@@ -21,10 +21,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class,'index']);
 Route::get('/post', [PostController::class,'index']);
-Route::get('/post-detail/{id}', [PostController::class,'show']);
+Route::get('/post-detail/{slug}', [PostController::class,'show']);
 Route::get('/product', [ProductController::class,'index']);
 Route::get('/product-category/{id}', [ProductController::class,'product_cate']);
-Route::get('/product-detail/{id}', [ProductController::class,'show']);
+Route::get('/product-detail/{slug}', [ProductController::class,'show']);
 Route::get('/cart', [CartController::class,'index']);
 Route::post('/addCart', [CartController::class,'addCart']);
 Route::get('/about', function () {
@@ -42,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::resource('cart',CartController::class);
 });
 
 Route::middleware(['auth','authadmin'])->group(function () {

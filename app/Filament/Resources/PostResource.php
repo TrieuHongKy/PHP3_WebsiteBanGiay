@@ -31,9 +31,6 @@ class PostResource extends Resource{
                 Forms\Components\TextInput::make('title')
                      ->required()
                      ->maxLength(255),
-                Forms\Components\TextInput::make('author')
-                    ->required()
-                    ->maxLength(255),
                 Forms\Components\Select::make('category_id')
                     ->relationship('category','name')
                     ->required(),
@@ -53,7 +50,7 @@ class PostResource extends Resource{
                 Tables\Columns\TextColumn::make('title')
                      ->limit(100),
                 Tables\Columns\TextColumn::make('category.name'),
-                Tables\Columns\TextColumn::make('author'),
+                Tables\Columns\TextColumn::make('author.name'),
                 Tables\Columns\TextColumn::make('content'),
                 Tables\Columns\TextColumn::make('date'),
                 Tables\Columns\ImageColumn::make('image'),

@@ -47,10 +47,11 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id = 0)
+    public function show($slug)
     {
-        $post = DB::table('posts')->where('id', $id)->get();
-        $data = ['id'=>$id,'post'=>$post];
+        $post = Post::query()->where('slug', $slug)->get();
+        $data = ['slug'=>$slug,'post'=>$post];
+//        $post_cate = Category::all();
         $featuredProducts = (new ProductController())->getFeaturedProducts();
         return view("/client/pages/post-detail",$data,['featuredProducts' => $featuredProducts]);
     }

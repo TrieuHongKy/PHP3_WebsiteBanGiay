@@ -21,7 +21,6 @@ class Product extends Model
         'view',
         'description',
         'price',
-        'total'
     ];
 
     public function category(): BelongsTo{

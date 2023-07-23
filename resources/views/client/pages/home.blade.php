@@ -3,64 +3,26 @@
     <section class="slide1">
         <div class="wrap-slick1">
             <div class="slick1">
-                <div class="item-slick1 item1-slick1" style="background-image: url(/assets/images/master-slide-01.jpg);">
-                    <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+                @foreach($widgets as $w)
+                    <div class="item-slick1 item1-slick1" style="background-image: url(/storage/{{$w->image}});">
+                        <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
 						<span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
 							Bộ sưu tập nam 2023
 						</span>
 
-                        <h2 class="font-poppins font-bold caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
-                            Sản phẩm mới nhất
-                        </h2>
+                            <h2 class="font-poppins font-bold caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
+                                Sản phẩm mới nhất
+                            </h2>
 
-                        <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
-                            <!-- Button -->
-                            <a href="{{url('/product')}}" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-                                Mua Ngay
-                            </a>
+                            <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
+                                <!-- Button -->
+                                <a href="{{url('/product')}}" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+                                    Mua Ngay
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="item-slick1 item2-slick1" style="background-image: url(/assets/images/master-slide-02.jpg);">
-                    <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rollIn">
-							Bộ sưu tập nam 2023
-						</span>
-
-                        <h2 class="font-poppins font-bold caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="lightSpeedIn">
-                            Sản phẩm mới nhất
-                        </h2>
-
-                        <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="slideInUp">
-                            <!-- Button -->
-                            <a href="{{url('/product')}}" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-                                Mua Ngay
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item-slick1 item3-slick1" style="background-image: url(/assets/images/master-slide-03.jpg);">
-                    <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rotateInDownLeft">
-							Bộ sưu tập nam 2023
-						</span>
-
-                        <h2 class="font-poppins font-bold caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="rotateInUpRight">
-                            Sản phẩm mới nhất
-                        </h2>
-
-                        <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="rotateIn">
-                            <!-- Button -->
-                            <a href="{{url('/product')}}" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-                                Mua Ngay
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+                @endforeach
         </div>
     </section>
 
@@ -318,18 +280,18 @@
                     <div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
                         <!-- Block3 -->
                         <div class="block3">
-                            <a href="{{url('/post-detail',[$post->id])}}" class="block3-img dis-block hov-img-zoom">
+                            <a href="{{url('/post-detail',[$post->slug])}}" class="block3-img dis-block hov-img-zoom">
                                 <img style="width:400px;height:400px" src="/storage/{{$post->image}}" alt="IMG-BLOG">
                             </a>
 
                             <div class="block3-txt p-t-14">
                                 <h4 class="p-b-7">
-                                    <a href="{{url('/post-detail',[$post->id])}}" class="m-text11">
+                                    <a href="{{url('/post-detail',[$post->slug])}}" class="m-text11">
                                         {{$post->title}}
                                     </a>
                                 </h4>
 
-                                <span class="s-text6">By</span> <span class="s-text7">{{$post->author}}</span>
+                                <span class="s-text6">By</span> <span class="s-text7">{{$post->author->name}}</span>
                                 <span class="s-text6">on</span> <span class="s-text7">{{$post->date}}</span>
 
                                 <p class="s-text8 p-t-16">

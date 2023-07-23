@@ -9,8 +9,8 @@
                         <!-- item blog -->
                         @foreach($post as $p)
                             <div class="item-blog p-b-80">
-                                <a href="{{url('/post-detail',[$p->id])}}" class="item-blog-img pos-relative dis-block hov-img-zoom">
-                                    <img src="storage/posts/{{$p->image}}" alt="IMG-BLOG">
+                                <a href="{{url('/post-detail',[$p->slug])}}" class="item-blog-img pos-relative dis-block hov-img-zoom">
+                                    <img src="storage/{{$p->image}}" alt="IMG-BLOG">
 
                                     <span class="item-blog-date dis-block flex-c-m pos1 size17 bg4 s-text1">
 									{{$p->date}}
@@ -19,19 +19,19 @@
 
                                 <div class="item-blog-txt p-t-33">
                                     <h4 class="p-b-11">
-                                        <a href="{{url('/post-detail',[$p->id])}}" class="m-text24">
+                                        <a href="{{url('/post-detail',[$p->slug])}}" class="m-text24">
                                             {{$p->title}}
                                         </a>
                                     </h4>
 
                                     <div class="s-text8 flex-w flex-m p-b-21">
 									<span>
-										Bởi {{$p->author}}
+										Bởi {{$p->author->name}}
 										<span class="m-l-3 m-r-6">|</span>
 									</span>
 
                                         <span>
-										{{$p->category_id}}
+										{{$p->category->name}}
 										<span class="m-l-3 m-r-6">|</span>
 									</span>
                                     </div>
@@ -40,7 +40,7 @@
                                         {{$p->content}}
                                     </p>
 
-                                    <a href="{{url('/post-detail',[$p->id])}}" class="s-text20">
+                                    <a href="{{url('/post-detail',[$p->slug])}}" class="s-text20">
                                         Đọc thêm
                                         <i class="fa fa-long-arrow-right m-l-8" aria-hidden="true"></i>
                                     </a>
@@ -89,7 +89,7 @@
                             @foreach($featuredProducts as $prod)
                                 <li class="flex-w p-b-20">
                                     <a href="{{url('/product-detail',[$prod->id])}}" class="dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4">
-                                        <img style="height:100px" src="/storage/products/{{$prod->image}}" alt="IMG-PRODUCT">
+                                        <img style="height:100px" src="/storage/{{$prod->image}}" alt="IMG-PRODUCT">
                                     </a>
 
                                     <div class="w-size23 p-t-5">
