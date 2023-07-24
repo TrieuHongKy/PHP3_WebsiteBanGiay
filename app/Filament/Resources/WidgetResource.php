@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\WidgetResource\Pages;
 use App\Filament\Resources\WidgetResource\RelationManagers;
 use App\Models\Widget;
+use Closure;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -12,6 +13,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
 
 class WidgetResource extends Resource
 {
@@ -27,6 +29,14 @@ class WidgetResource extends Resource
                     ->required()
                     ->unique()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('slug')
+                    ->required()
+                    ->unique()
+                    ->maxLength(255)
+                    ->reactive()
+                    ->afterStateUpdated(function (Closure $set, $state) {
+                        $set('slug', Str::slug($state));
+                    }),
                 Forms\Components\FileUpload::make('image')
                     ->required()
                     ->unique(),
@@ -39,6 +49,7 @@ class WidgetResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('slug'),
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('description'),
             ])
