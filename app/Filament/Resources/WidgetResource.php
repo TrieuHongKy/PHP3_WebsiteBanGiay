@@ -19,6 +19,8 @@ class WidgetResource extends Resource
 {
     protected static ?string $model = Widget::class;
 
+    protected static ?string $navigationLabel = 'Hệ thống';
+
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
