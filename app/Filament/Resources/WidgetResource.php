@@ -50,10 +50,10 @@ class WidgetResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('name')->label('Tên'),
                 Tables\Columns\TextColumn::make('slug'),
-                Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('description'),
+                Tables\Columns\ImageColumn::make('image')->label('Hình Ảnh'),
+                Tables\Columns\TextColumn::make('description')->label('Mô Tả'),
             ])
             ->filters([
                 //

@@ -44,9 +44,9 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('userType'),
-                Tables\Columns\TextColumn::make('email'),
+                Tables\Columns\TextColumn::make('name')->label('Tên Người Dùng'),
+                Tables\Columns\TextColumn::make('userType')->label('Loại Tài Khoản'),
+                Tables\Columns\TextColumn::make('email')->label('Địa Chir Email'),
                 Tables\Columns\TextColumn::make('email_verified_at')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('created_at')

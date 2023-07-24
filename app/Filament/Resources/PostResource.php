@@ -46,14 +46,15 @@ class PostResource extends Resource{
     : Table{
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id'),
+                Tables\Columns\TextColumn::make('id')->label('ID'),
                 Tables\Columns\TextColumn::make('title')
-                     ->limit(100),
-                Tables\Columns\TextColumn::make('category.name'),
-                Tables\Columns\TextColumn::make('author.name'),
-                Tables\Columns\TextColumn::make('content'),
-                Tables\Columns\TextColumn::make('date'),
-                Tables\Columns\ImageColumn::make('image'),
+                     ->limit(100)
+                     ->label('Tiêu Đề'),
+                Tables\Columns\TextColumn::make('category.name')->label('Loại Bài Viết'),
+                Tables\Columns\TextColumn::make('author.name')->label('Tên Tác Giả'),
+                Tables\Columns\TextColumn::make('content')->label('Nội Dung'),
+                Tables\Columns\TextColumn::make('date')->label('Ngày Đăng'),
+                Tables\Columns\ImageColumn::make('image')->label("Hình Ảnh"),
                 Tables\Columns\TextColumn::make('created_at')
                       ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')

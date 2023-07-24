@@ -45,10 +45,10 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id'),
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('id')->label('ID'),
+                Tables\Columns\TextColumn::make('name')->label('Tên Loại Bài Viết'),
                 Tables\Columns\TextColumn::make('slug'),
-                Tables\Columns\TextColumn::make('description')
+                Tables\Columns\TextColumn::make('description')->label('Mô Tả')
             ])
             ->filters([
                 //

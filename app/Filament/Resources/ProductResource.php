@@ -58,14 +58,14 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id'),
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('price'),
-                Tables\Columns\TextColumn::make('quantity'),
-                Tables\Columns\TextColumn::make('view'),
-                Tables\Columns\TextColumn::make('category.name'),
-                Tables\Columns\TextColumn::make('description'),
+                Tables\Columns\TextColumn::make('id')->label('ID'),
+                Tables\Columns\TextColumn::make('name')->label('Tên Sản Phẩm'),
+                Tables\Columns\ImageColumn::make('image')->label('Hình Ảnh'),
+                Tables\Columns\TextColumn::make('price')->label('Giá'),
+                Tables\Columns\TextColumn::make('quantity')->label('Tồn Kho'),
+                Tables\Columns\TextColumn::make('view')->label('Lượt Xem'),
+                Tables\Columns\TextColumn::make('category.name')->label('Loại Sản Phẩm'),
+                Tables\Columns\TextColumn::make('description')->label('Mô Tả'),
                 Tables\Columns\TextColumn::make('slug'),
             ])
             ->filters([

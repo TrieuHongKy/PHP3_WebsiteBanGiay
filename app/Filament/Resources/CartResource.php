@@ -40,10 +40,10 @@ class CartResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('product_id'),
-                Tables\Columns\TextColumn::make('user_id'),
-                Tables\Columns\TextColumn::make('total'),
-                Tables\Columns\TextColumn::make('quantity'),
+                Tables\Columns\TextColumn::make('product_id')->label('ID Sản Phẩm'),
+                Tables\Columns\TextColumn::make('user_id')->label('ID Người dùng'),
+                Tables\Columns\TextColumn::make('total')->label('Tổng Cộng'),
+                Tables\Columns\TextColumn::make('quantity')->label('Số Lượng'),
             ])
             ->filters([
                 //
