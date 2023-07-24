@@ -27,14 +27,10 @@ class CartResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('product_id')
                     ->required(),
-                Forms\Components\TextInput::make('product_name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('price')
+                Forms\Components\TextInput::make('user_id')
                     ->required(),
-                Forms\Components\TextInput::make('image')
-                    ->required()
-                    ->maxLength(255),
+                Forms\Components\TextInput::make('total')
+                    ->required(),
                 Forms\Components\TextInput::make('quantity')
                     ->required(),
             ]);
@@ -45,9 +41,8 @@ class CartResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('product_id'),
-                Tables\Columns\TextColumn::make('product_name'),
-                Tables\Columns\TextColumn::make('price'),
-                Tables\Columns\ImageColumn::make('image')->width(55)->height(40),
+                Tables\Columns\TextColumn::make('user_id'),
+                Tables\Columns\TextColumn::make('total'),
                 Tables\Columns\TextColumn::make('quantity'),
             ])
             ->filters([
