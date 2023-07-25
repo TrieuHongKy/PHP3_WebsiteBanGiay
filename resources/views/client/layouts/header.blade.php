@@ -82,7 +82,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{url('/cart')}}">Hóa đơn</a>
+                                    <a href="{{url('/reciept')}}">Hóa đơn</a>
                                 </li>
                             </ul>
                         @endif

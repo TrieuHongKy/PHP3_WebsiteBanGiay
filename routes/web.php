@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RecieptController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +27,8 @@ Route::get('/product', [ProductController::class,'index']);
 Route::get('/product-category/{id}', [ProductController::class,'product_cate']);
 Route::get('/product-detail/{slug}', [ProductController::class,'show']);
 Route::get('/cart', [CartController::class,'index']);
-Route::post('/addCart', [CartController::class,'addCart']);
+Route::post('/addCart', [CartController::class,'store']);
+Route::get('/reciept', [CartController::class,'reciept']);
 Route::get('/about', function () {
     return view('client/pages/about');
 });
@@ -43,6 +45,7 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('cart',CartController::class);
+    Route::resource('/reciept',RecieptController::class);
 });
 
 Route::middleware(['auth','authadmin'])->group(function () {

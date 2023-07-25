@@ -21,7 +21,7 @@ class WidgetResource extends Resource
 
     protected static ?string $navigationLabel = 'Hệ thống';
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-cog';
 
     public static function form(Form $form): Form
     {
