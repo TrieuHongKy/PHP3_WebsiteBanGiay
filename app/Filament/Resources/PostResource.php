@@ -14,6 +14,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
 
 class PostResource extends Resource{
 
@@ -30,13 +31,15 @@ class PostResource extends Resource{
             ->schema([
                 Forms\Components\TextInput::make('title')
                      ->required()
+                    ->label('Tiêu Đề')
                      ->maxLength(255),
                 Forms\Components\Select::make('category_id')
                     ->relationship('category','name')
+                    ->label('Loại Bài Viết')
                     ->required(),
-                Forms\Components\DatePicker::make('date')->required(),
-                Forms\Components\FileUpload::make('image')->nullable(),
-                Forms\Components\Textarea::make('content')
+                Forms\Components\FileUpload::make('image')->nullable()->label('Hình Ảnh'),
+                Forms\Components\RichEditor::make('content')
+                    ->label('Nội Dung')
                     ->maxLength(65535)
                     ->required(),
             ]);
@@ -48,17 +51,13 @@ class PostResource extends Resource{
             ->columns([
                 Tables\Columns\TextColumn::make('id')->label('ID'),
                 Tables\Columns\TextColumn::make('title')
-                     ->limit(100)
+                    ->limit(20)
                      ->label('Tiêu Đề'),
                 Tables\Columns\TextColumn::make('category.name')->label('Loại Bài Viết'),
                 Tables\Columns\TextColumn::make('author.name')->label('Tên Tác Giả'),
-                Tables\Columns\TextColumn::make('content')->label('Nội Dung'),
-                Tables\Columns\TextColumn::make('date')->label('Ngày Đăng'),
-                Tables\Columns\ImageColumn::make('image')->label("Hình Ảnh"),
-                Tables\Columns\TextColumn::make('created_at')
-                      ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                      ->dateTime(),
+                Tables\Columns\TextColumn::make('content')->label('Nội Dung')->limit(20),
+                Tables\Columns\TextColumn::make('date')->date()->label('Ngày Đăng'),
+                Tables\Columns\ImageColumn::make('image')->label("Hình Ảnh")->width(60)->height(40),
             ])
             ->filters([
                 //

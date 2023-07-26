@@ -30,14 +30,16 @@ class ProductCategoryResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required()
+                    ->label('')
                     ->maxLength(255)
                     ->reactive()
                     ->afterStateUpdated(function (Closure $set, $state) {
                         $set('slug', Str::slug($state));
                     }),
                 Forms\Components\TextInput::make('slug')
-                                          ->required(),
-                Forms\Components\Textarea::make('description')
+                    ->required(),
+                Forms\Components\RichEditor::make('description')
+                    ->label('Mô Tả')
                     ->maxLength(65535),
             ]);
     }
@@ -46,10 +48,14 @@ class ProductCategoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')->label(''),
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('id')
+                    ->label('ID'),
+                Tables\Columns\TextColumn::make('name')
+                    ->label('Tên Loại'),
                 Tables\Columns\TextColumn::make('slug'),
-                Tables\Columns\TextColumn::make('description'),
+                Tables\Columns\TextColumn::make('description')
+                    ->label('Mô Tả')
+                    ->limit(40),
             ])
             ->filters([
                 //

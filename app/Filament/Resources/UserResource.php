@@ -26,14 +26,16 @@ class UserResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Tên Người Dùng')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('email')
+                    ->label('Email')
                     ->email()
                     ->required()
                     ->maxLength(255),
-                Forms\Components\DateTimePicker::make('email_verified_at'),
                 Forms\Components\TextInput::make('password')
+                    ->label('Mật Khẩu')
                     ->password()
                     ->required()
                     ->maxLength(255),
@@ -46,13 +48,7 @@ class UserResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')->label('Tên Người Dùng'),
                 Tables\Columns\TextColumn::make('userType')->label('Loại Tài Khoản'),
-                Tables\Columns\TextColumn::make('email')->label('Địa Chir Email'),
-                Tables\Columns\TextColumn::make('email_verified_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+                Tables\Columns\TextColumn::make('email')->label('Địa Chỉ Email'),
             ])
             ->filters([
                 //

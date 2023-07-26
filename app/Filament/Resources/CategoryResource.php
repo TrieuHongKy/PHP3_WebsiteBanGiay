@@ -28,6 +28,7 @@ class CategoryResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Tên Loại Bài Viết')
                     ->required()
                     ->maxLength(255)
                     ->reactive()
@@ -36,7 +37,8 @@ class CategoryResource extends Resource
                     }),
                 Forms\Components\TextInput::make('slug')
                     ->required(),
-                Forms\Components\Textarea::make('description')
+                Forms\Components\RichEditor::make('description')
+                    ->label('Mô Tả')
                     ->maxLength(65535)
             ]);
     }
@@ -46,9 +48,14 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')->label('ID'),
-                Tables\Columns\TextColumn::make('name')->label('Tên Loại Bài Viết'),
-                Tables\Columns\TextColumn::make('slug'),
-                Tables\Columns\TextColumn::make('description')->label('Mô Tả')
+                Tables\Columns\TextColumn::make('name')
+                    ->label('Tên Loại Bài Viết')
+                    ->limit('20'),
+                Tables\Columns\TextColumn::make('slug')
+                    ->limit('20'),
+                Tables\Columns\TextColumn::make('description')
+                    ->label('Mô Tả')
+                    ->limit('20'),
             ])
             ->filters([
                 //

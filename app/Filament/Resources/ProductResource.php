@@ -28,6 +28,7 @@ class ProductResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Tên Sản Phẩm')
                     ->required()
                     ->maxLength(255)
                     ->reactive()
@@ -38,18 +39,23 @@ class ProductResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('price')
+                    ->label('Giá Tiền')
                     ->required(),
-                Forms\Components\TextInput::make('total'),
                 Forms\Components\TextInput::make('view')
+                    ->label('Lượt Xem')
                     ->default(1),
                 Forms\Components\TextInput::make('quantity')
+                    ->label('Tồn Kho')
                     ->default(1),
                 Forms\Components\Select::make('category_id')
+                    ->label('Loại Sản Phẩm')
                     ->relationship('category','name')
                     ->required(),
                 Forms\Components\FileUpload::make('image')
+                    ->label('Hình Ảnh')
                     ->required(),
-                Forms\Components\Textarea::make('description'),
+                Forms\Components\RichEditor::make('description')
+                    ->label('Mô Tả'),
 
             ]);
     }
@@ -59,14 +65,14 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')->label('ID'),
-                Tables\Columns\TextColumn::make('name')->label('Tên Sản Phẩm'),
-                Tables\Columns\ImageColumn::make('image')->label('Hình Ảnh'),
+                Tables\Columns\TextColumn::make('name')->label('Tên Sản Phẩm')->limit(20),
+                Tables\Columns\ImageColumn::make('image')->label('Hình Ảnh')->width(60),
                 Tables\Columns\TextColumn::make('price')->label('Giá'),
                 Tables\Columns\TextColumn::make('quantity')->label('Tồn Kho'),
                 Tables\Columns\TextColumn::make('view')->label('Lượt Xem'),
                 Tables\Columns\TextColumn::make('category.name')->label('Loại Sản Phẩm'),
-                Tables\Columns\TextColumn::make('description')->label('Mô Tả'),
-                Tables\Columns\TextColumn::make('slug'),
+                Tables\Columns\TextColumn::make('description')->label('Mô Tả')->limit(40),
+                Tables\Columns\TextColumn::make('slug')->limit(20),
             ])
             ->filters([
                 //

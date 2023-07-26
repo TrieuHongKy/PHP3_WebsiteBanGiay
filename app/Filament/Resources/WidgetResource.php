@@ -28,6 +28,7 @@ class WidgetResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Tên Hệ Thống')
                     ->required()
                     ->unique()
                     ->maxLength(255),
@@ -40,9 +41,11 @@ class WidgetResource extends Resource
                         $set('slug', Str::slug($state));
                     }),
                 Forms\Components\FileUpload::make('image')
+                    ->label('Hình Ảnh')
                     ->required()
                     ->unique(),
-                Forms\Components\Textarea::make('description'),
+                Forms\Components\RichEditor::make('description')
+                    ->label('Mô Tả'),
             ]);
     }
 

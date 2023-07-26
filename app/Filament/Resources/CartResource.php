@@ -26,13 +26,13 @@ class CartResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('product_id')
-                    ->required(),
+                    ->required()->label('ID Sản Phẩm'),
                 Forms\Components\TextInput::make('user_id')
-                    ->required(),
+                    ->required()->label('ID Người Dùng'),
                 Forms\Components\TextInput::make('total')
-                    ->required(),
+                    ->required()->label('Tổng Cộng'),
                 Forms\Components\TextInput::make('quantity')
-                    ->required(),
+                    ->required()->label('Số Lượng'),
             ]);
     }
 
