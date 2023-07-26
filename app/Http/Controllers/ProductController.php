@@ -51,13 +51,17 @@ class ProductController extends Controller
     {
         $product = DB::table('products')->where('slug', $slug)->get();
         $data = ['slug'=>$slug,'product'=>$product];
-//        $prod = DB::table('products')->where('id',$id)->first();
-//        $data = ['id'=>$id,'prod'=>$prod];
-//        return view("/client/pages/product-detail",$data);
-
         return view("/client/pages/product-detail",$data);
     }
 
+    public function showProductByCate($slug)
+    {
+        $cate = ProductCategory::all();
+        $category = ProductCategory::where('slug',$slug)->first();
+        $product = Product::where('category_id', $category->id)->paginate(6);
+//        $data = ['Category'=>$Category,'slug'=>$slug,'productCategory'=>$productCategory];
+        return view("client/pages/product-category",compact('cate','product'));
+    }
     /**
      * Show the form for editing the specified resource.
      */

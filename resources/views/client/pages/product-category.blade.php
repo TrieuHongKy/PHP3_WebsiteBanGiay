@@ -1,5 +1,5 @@
 @extends('client.app')
-@section('product')
+@section('product-category')
     <!-- Content page -->
     <section  style="margin-top:120px"  class="bgwhite p-t-55 p-b-65">
         <div class="container">
@@ -13,15 +13,15 @@
 
                         <ul class="p-b-54">
                             <li class="p-t-4">
-                                <a href="#" class="s-text13 active1">
+                                <a href="{{url('product')}}" class="s-text13 active1">
                                     Tất cả
                                 </a>
                             </li>
-                            @foreach($product_cate as $cate)
+                            @foreach($cate as $c)
                                 <hr>
                                 <li class="p-t-4">
-                                    <a href="{{url('/product',[$cate->slug])}}" class="s-text13 active1">
-                                        {{$cate->name}}
+                                    <a href="{{url('/product',[$c->slug])}}" class="s-text13 active1">
+                                        {{$c->name}}
                                     </a>
                                 </li>
                             @endforeach
@@ -97,7 +97,7 @@
                                 <!-- Block2 -->
                                 <div class="block2">
                                     <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                        <img class="w-[300px] h-[300px] " src="storage/{{$prod->image}}" alt="IMG-PRODUCT">
+                                        <img class="w-[300px] h-[300px] " src="/storage/{{$prod->image}}" alt="IMG-PRODUCT">
 
                                         <div class="block2-overlay trans-0-4">
                                             <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">

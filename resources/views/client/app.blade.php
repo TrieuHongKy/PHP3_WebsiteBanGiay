@@ -53,6 +53,7 @@
     @yield('post-detail')
     @yield('product')
     @yield('product-detail')
+    @yield('product-category')
     @yield('login')
     @yield('profile')
     @yield('receipt')
