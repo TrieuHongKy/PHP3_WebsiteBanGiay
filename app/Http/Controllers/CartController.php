@@ -15,10 +15,11 @@ class CartController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $carts = Cart::all();
-        return view("/client/pages/cart",['carts'=>$carts]);
+        $user_id = $request->user()->id;
+        $cartItems = Cart::where('user_id',$user_id)->get();
+        return view('client/pages/cart',compact('cartItems'));
     }
 
     public function addCart(Request $request)
@@ -49,18 +50,31 @@ class CartController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+    $user_id = Auth::user()->id;
+    $quantity = $request->quantity;
+    $product_id = $request->product_id;
+    $total = $request->price * $quantity;
+    Cart::create([
+       'product_id' => $product_id,
+       'quantity' => $quantity,
+       'total' => $total,
+       'user_id' => $user_id
+    ]);
+
+    return redirect('/cart');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request)
     {
-        //
+//        $user_id = $request->user()->id;
+//        $cartItems = Cart::where('user_id',$user_id)->get();
+//        return view('client/pages/cart',compact('cartItems'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

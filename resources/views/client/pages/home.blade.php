@@ -126,7 +126,7 @@
         <div class="container">
             <div class="sec-title p-b-60">
                 <h3 class="m-text5 t-center">
-                    Sản phẩm nổi bật
+                    Sản phẩm phổ biến
                 </h3>
             </div>
 

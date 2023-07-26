@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PostSeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(WidgetSeeder::class);
+        $this->call(CartSeeder::class);
+        $this->call(ReceiptSeeder::class);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

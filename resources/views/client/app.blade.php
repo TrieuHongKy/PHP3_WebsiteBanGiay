@@ -55,7 +55,7 @@
     @yield('product-detail')
     @yield('login')
     @yield('profile')
-    @yield('reciept')
+    @yield('receipt')
 
 
 <!-- Footer -->

@@ -5,7 +5,7 @@
 <section style="margin-top:120px" class="cart bgwhite p-t-70 p-b-100">
     <div class="container">
         <!-- Cart item -->
-        @if($carts->isEmpty())
+        @if($cartItems->isEmpty())
             <p>Không có sản phẩm trong giỏ hàng.</p>
         @else
         <div class="container-table-cart pos-relative">
@@ -19,15 +19,15 @@
                         <th class="column-5">Tổng cộng</th>
                     </tr>
 
-                    @foreach($carts as $d)
+                    @foreach($cartItems as $d)
                         <tr class="table-row">
                             <td class="column-1">
                                 <div class="cart-img-product b-rad-4 o-f-hidden">
-                                    <img src="/storage/{{$d->image}}" alt="IMG-PRODUCT">
+                                    <img src="/storage/{{$d->product->image}}" alt="IMG-PRODUCT">
                                 </div>
                             </td>
-                            <td class="column-2">{{$d->product_name}}</td>
-                            <td class="column-3">{{$d->price}}</td>
+                            <td class="column-2">{{$d->product->name}}</td>
+                            <td class="column-3">{{$d->product->price}}</td>
                             <td class="column-4">
                                 <div class="flex-w bo5 of-hidden w-size17">
                                     <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
