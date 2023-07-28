@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Cart;
 use App\Models\Receipt;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ReceiptController extends Controller
@@ -13,7 +15,8 @@ class ReceiptController extends Controller
      */
     public function index()
     {
-        return view ('client/pages/receipt');
+        $receipt = Receipt::all();
+        return view ('client/pages/receipt',compact('receipt'));
     }
 
     /**
@@ -29,7 +32,28 @@ class ReceiptController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user_id = Auth::user()->id;
+        $cart_id = $request->cart_id;
+        $product_id = $request->product_id;
+        $date = $request->date;
+        $payment_method = $request->payment_method;
+        $address = $request->address;
+        $total = $request->total;
+        $quantity = '1';
+
+            Receipt::create([
+                'date'           => $date,
+                'payment_method' => $payment_method,
+                'total'          => $total,
+                'address'        => $address,
+                'user_id'        => $user_id,
+                'cart_id'        => $cart_id,
+                'product_id'     => $product_id,
+                'quantity'       => $quantity
+            ]);
+
+        return redirect('/receipt');
+
     }
 
     /**

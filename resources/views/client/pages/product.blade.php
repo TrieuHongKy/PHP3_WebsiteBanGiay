@@ -107,9 +107,20 @@
 
                                             <div class="block2-btn-addcart w-size1 trans-0-4">
                                                 <!-- Button -->
-                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                    Thêm vào giỏ hàng
-                                                </button>
+                                                <form action="{{url('/addCart')}}" method="POST">
+                                                    {{csrf_field()}}
+                                                    <div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
+                                                        <!-- Button -->
+                                                        <input name="price" type="hidden" value="{{$prod->price}}">
+                                                        <input name="product_id" type="hidden" value="{{$prod->id}}">
+                                                        <input name="product_name" type="hidden" value="{{$prod->name}}">
+                                                        <input name="image" type="hidden" value="{{$prod->image}}">
+                                                        <input name="quantity" type="hidden" value="1">
+                                                        <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                            Thêm vào giỏ hàng
+                                                        </button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>

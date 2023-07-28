@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\RecieptResource\Pages;
-use App\Filament\Resources\RecieptResource\RelationManagers;
+use App\Filament\Resources\ReceiptResource\Pages;
+use App\Filament\Resources\ReceiptResource\RelationManagers;
 use App\Models\Receipt;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -19,24 +19,27 @@ class ReceiptResource extends Resource
 
     protected static ?string $navigationLabel = 'Hóa Đơn';
 
-    protected static ?string $navigationIcon = 'heroicon-o-clipboard';
+    protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('cart_id')
-                    ->required(),
-                Forms\Components\DateTimePicker::make('date')
+                Forms\Components\Select::make('cart_id')
+                    ->label('ID Giỏ Hàng')
+                    ->relationship('cart', 'id')
                     ->required(),
                 Forms\Components\TextInput::make('payment_method')
+                    ->label('Phương Thức Thanh Toán')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('address')
                     ->required()
+                    ->label('Địa Chỉ')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('total')
-                    ->required(),
+                    ->required()
+                    ->label('Tổng Tiền'),
             ]);
     }
 
@@ -44,16 +47,17 @@ class ReceiptResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('cart_id'),
+                Tables\Columns\TextColumn::make('cart.id')
+                    ->label('ID Giỏ Hàng'),
                 Tables\Columns\TextColumn::make('date')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('payment_method'),
-                Tables\Columns\TextColumn::make('address'),
-                Tables\Columns\TextColumn::make('total'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+                    ->date()
+                    ->label('Ngày Tạo Hóa Đơn'),
+                Tables\Columns\TextColumn::make('payment_method')
+                    ->label('Phương Thức Thanh Toán'),
+                Tables\Columns\TextColumn::make('address')
+                    ->label('Địa Chỉ'),
+                Tables\Columns\TextColumn::make('total')
+                    ->label('Tổng Tiền'),
             ])
             ->filters([
                 //

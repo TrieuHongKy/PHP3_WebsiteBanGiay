@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\RecieptResource\Pages;
+namespace App\Filament\Resources\ReceiptResource\Pages;
 
 use App\Filament\Resources\ReceiptResource;
 use Filament\Pages\Actions;

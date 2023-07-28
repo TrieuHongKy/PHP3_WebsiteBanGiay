@@ -107,53 +107,21 @@
                                         <th class="center">#</th>
                                         <th>Product</th>
                                         <th class="hidden-xs">Description</th>
-                                        <th class="hidden-480">Discount</th>
+                                        <th class="hidden-480">Quantity</th>
                                         <th>Total</th>
                                     </tr>
                                     </thead>
 
                                     <tbody>
-                                    <tr>
-                                        <td class="center">1</td>
-
-                                        <td>
-                                            <a href="#">google.com</a>
-                                        </td>
-                                        <td class="hidden-xs">
-                                            1 year domain registration
-                                        </td>
-                                        <td class="hidden-480"> --- </td>
-                                        <td>$10</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="center">2</td>
-
-                                        <td>
-                                            <a href="#">yahoo.com</a>
-                                        </td>
-                                        <td class="hidden-xs">
-                                            5 year domain registration
-                                        </td>
-                                        <td class="hidden-480"> 5% </td>
-                                        <td>$45</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="center">3</td>
-                                        <td>Hosting</td>
-                                        <td class="hidden-xs"> 1 year basic hosting </td>
-                                        <td class="hidden-480"> 10% </td>
-                                        <td>$90</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="center">4</td>
-                                        <td>Design</td>
-                                        <td class="hidden-xs"> Theme customization </td>
-                                        <td class="hidden-480"> 50% </td>
-                                        <td>$250</td>
-                                    </tr>
+                                    @foreach($receipt as $r)
+                                        <tr>
+                                            <td class="center">{{$r->cart->product->id}}</td>
+                                            <td>{{$r->cart->product->name}}</td>
+                                            <td class="hidden-xs"> {{$r->cart->product->description}}</td>
+                                            <td class="hidden-480"> {{$r->cart->product->quantity}}</td>
+                                            <td>{{$r->cart->total}}</td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

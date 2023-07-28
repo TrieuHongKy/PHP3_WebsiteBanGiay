@@ -21,4 +21,7 @@ class Receipt extends Model
     public function cart(): BelongsTo{
         return $this->belongsTo(Cart::class);
     }
+    public function user(): BelongsTo{
+        return $this->belongsTo(User::class);
+    }
 }
