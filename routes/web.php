@@ -28,7 +28,9 @@ Route::get('/product/{slug}', [ProductController::class,'showProductByCate']);
 Route::get('/product-detail/{slug}', [ProductController::class,'show']);
 Route::post('/addCart', [CartController::class,'store']);
 Route::get('/cart', [CartController::class,'show']);
-Route::get('/receipt', [CartController::class,'receipt']);
+Route::delete('/deleteCart/{id}', [CartController::class,'destroy']);
+Route::post('/addReceipt', [ReceiptController::class,'store']);
+Route::get('/receipt', [ReceiptController::class,'index']);
 Route::get('/about', function () {
     return view('client/pages/about');
 });
