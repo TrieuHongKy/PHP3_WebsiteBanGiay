@@ -33,6 +33,7 @@ class ReceiptController extends Controller
     public function store(Request $request)
     {
         $user_id = Auth::user()->id;
+//        $cart_id = Cart::where('user_id',$user_id)->get();
         $cart_id = $request->cart_id;
         $product_id = $request->product_id;
         $date = $request->date;
@@ -41,6 +42,7 @@ class ReceiptController extends Controller
         $total = $request->total;
         $quantity = '1';
 
+//        foreach($cart_id->product as $c){
             Receipt::create([
                 'date'           => $date,
                 'payment_method' => $payment_method,
@@ -51,6 +53,7 @@ class ReceiptController extends Controller
                 'product_id'     => $product_id,
                 'quantity'       => $quantity
             ]);
+//        }
 
         return redirect('/receipt');
 
