@@ -120,7 +120,7 @@
                                         </a>
 
                                         <span class="block2-price m-text6 p-r-5">
-										 {{$prod->price}} VND
+										 {{ number_format($prod->price, 0, '.', ',')}} VND
 									    </span>
                                     </div>
                                 </div>

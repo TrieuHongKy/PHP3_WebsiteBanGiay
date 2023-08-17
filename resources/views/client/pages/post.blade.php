@@ -98,7 +98,7 @@
                                         </a>
 
                                         <span class="dis-block s-text17 p-t-6">
-										{{$prod->price}}
+										{{ number_format($prod->price, 0, '.', ',')}}
 									</span>
                                     </div>
                                 </li>

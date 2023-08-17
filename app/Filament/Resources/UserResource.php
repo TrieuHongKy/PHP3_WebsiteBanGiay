@@ -34,10 +34,12 @@ class UserResource extends Resource
                     ->email()
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('userType')
+                    ->label('Loại tài khoản')
+                    ->required(),
                 Forms\Components\TextInput::make('password')
                     ->label('Mật Khẩu')
                     ->password()
-                    ->required()
                     ->maxLength(255),
             ]);
     }
@@ -62,11 +64,11 @@ class UserResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getPages(): array
     {
         return [
             'index' => Pages\ManageUsers::route('/'),
         ];
-    }    
+    }
 }

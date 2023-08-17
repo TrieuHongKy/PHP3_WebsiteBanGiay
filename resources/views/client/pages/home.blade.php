@@ -162,7 +162,7 @@
                                     </a>
 
                                     <span class="block2-price m-text6 p-r-5">
-									{{$prod->price}}đ
+									{{ number_format($prod->price, 0, '.', ',')}}đ
 								</span>
                                 </div>
                             </div>

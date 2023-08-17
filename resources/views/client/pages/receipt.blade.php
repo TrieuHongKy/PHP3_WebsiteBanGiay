@@ -7,16 +7,16 @@
                     <div class="widget-header widget-header-large">
                         <h3 class="widget-title grey lighter">
                             <i class="ace-icon fa fa-leaf green"></i>
-                            Bootdey receipt
+                            Hóa đơn
                         </h3>
 
                         <div class="widget-toolbar no-border invoice-info">
-                            <span class="invoice-info-label">Invoice:</span>
-                            <span class="red">#121212</span>
+                            <span class="invoice-info-label">Mã hóa đơn:</span>
+                            <span class="red">#1</span>
 
                             <br>
-                            <span class="invoice-info-label">Date:</span>
-                            <span class="blue">04/04/2014</span>
+                            <span class="invoice-info-label">Ngày:</span>
+                            <span class="blue">17/8/2023</span>
                         </div>
 
                         <div class="widget-toolbar hidden-480">
@@ -32,36 +32,31 @@
                                 <div class="col-sm-6">
                                     <div class="row">
                                         <div class="col-xs-11 label label-lg label-info arrowed-in arrowed-right">
-                                            <b>Company Info</b>
+                                            <b>Thông tin cửa hàng</b>
                                         </div>
                                     </div>
 
                                     <div>
                                         <ul class="list-unstyled spaced">
                                             <li>
-                                                <i class="ace-icon fa fa-caret-right blue"></i>Street, City
+                                                <i class="ace-icon fa fa-caret-right blue"></i>Cần thơ
                                             </li>
 
                                             <li>
-                                                <i class="ace-icon fa fa-caret-right blue"></i>Zip Code
+                                                <i class="ace-icon fa fa-caret-right blue"></i>65000
                                             </li>
 
                                             <li>
-                                                <i class="ace-icon fa fa-caret-right blue"></i>State, Country
+                                                <i class="ace-icon fa fa-caret-right blue"></i>HogKyStore
                                             </li>
 
                                             <li>
                                                 <i class="ace-icon fa fa-caret-right blue"></i>
-                                                Phone:
-                                                <b class="red">111-111-111</b>
+                                                Số điện thoại:
+                                                <b class="red">0901004890</b>
                                             </li>
 
                                             <li class="divider"></li>
-
-                                            <li>
-                                                <i class="ace-icon fa fa-caret-right blue"></i>
-                                                Paymant Info
-                                            </li>
                                         </ul>
                                     </div>
                                 </div><!-- /.col -->
@@ -69,30 +64,16 @@
                                 <div class="col-sm-6">
                                     <div class="row">
                                         <div class="col-xs-11 label label-lg label-success arrowed-in arrowed-right">
-                                            <b>Customer Info</b>
+                                            <b>Thông tin khách hàng</b>
                                         </div>
                                     </div>
 
                                     <div>
                                         <ul class="list-unstyled  spaced">
                                             <li>
-                                                <i class="ace-icon fa fa-caret-right green"></i>Street, City
+                                                <i class="ace-icon fa fa-caret-right green"></i>Cần Thơ
                                             </li>
 
-                                            <li>
-                                                <i class="ace-icon fa fa-caret-right green"></i>Zip Code
-                                            </li>
-
-                                            <li>
-                                                <i class="ace-icon fa fa-caret-right green"></i>State, Country
-                                            </li>
-
-                                            <li class="divider"></li>
-
-                                            <li>
-                                                <i class="ace-icon fa fa-caret-right green"></i>
-                                                Contact Info
-                                            </li>
                                         </ul>
                                     </div>
                                 </div><!-- /.col -->
@@ -105,10 +86,10 @@
                                     <thead>
                                     <tr>
                                         <th class="center">#</th>
-                                        <th>Product</th>
-                                        <th class="hidden-xs">Description</th>
-                                        <th class="hidden-480">Quantity</th>
-                                        <th>Total</th>
+                                        <th>Sản phẩm</th>
+                                        <th class="hidden-xs">Mô tả</th>
+                                        <th class="hidden-480">Số lượng</th>
+                                        <th>Tổng cộng</th>
                                     </tr>
                                     </thead>
 
@@ -119,7 +100,7 @@
                                             <td>{{$r->cart->product->name}}</td>
                                             <td class="hidden-xs"> {{$r->cart->product->description}}</td>
                                             <td class="hidden-480"> {{$r->cart->product->quantity}}</td>
-                                            <td>{{$r->cart->total}}</td>
+                                            <td>{{ number_format($r->cart->total, 0, '.', ',')}}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -131,17 +112,17 @@
                             <div class="row">
                                 <div class="col-sm-5 pull-right">
                                     <h4 class="pull-right">
-                                        Total amount :
-                                        <span class="red">$395</span>
+                                        Tổng thanh toán :
+                                        <span class="red">{{ number_format($r->cart->total, 0, '.', ',')}}đ</span>
                                     </h4>
                                 </div>
-                                <div class="col-sm-7 pull-left"> Extra Information </div>
+                                <div class="col-sm-7 pull-left"> Đặt hàng thành công </div>
                             </div>
 
                             <div class="space-6"></div>
                             <div class="well">
-                                Thank you for choosing Ace Company products.
-                                We believe you will be satisfied by our services.
+                                Chúng tôi chân thành cảm ơn bạn đã tin tưởng.
+                                Nếu sản phẩm gặp trục trặc chúng tôi hoàn tiền 100%.
                             </div>
                         </div>
                     </div>

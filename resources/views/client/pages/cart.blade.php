@@ -27,7 +27,7 @@
                                         </div>
                                     </td>
                                     <td class="column-2">{{$d->product->name}}</td>
-                                    <td class="column-3">{{$d->product->price}}</td>
+                                    <td class="column-3">{{ number_format($d->product->price, 0, '.', ',')}}</td>
                                     <td class="column-4">
                                         <div class="flex-w bo5 of-hidden w-size17">
                                             <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
@@ -41,7 +41,7 @@
                                             </button>
                                         </div>
                                     </td>
-                                    <td class="column-5">{{$d->total}}</td>
+                                    <td class="column-5">{{ number_format($d->total, 0, '.', ',')}}</td>
                                     <td class="column-6">
                                         <form method="post" action="{{url('deleteCart',[$d->id])}}">
                                             @csrf
@@ -94,7 +94,7 @@
                         </span>
 
                         <span class="m-text21 w-size20 w-full-sm">
-                            7.200.000đ
+                            {{ number_format($d->total, 0, '.', ',')}}
                         </span>
                     </div>
 
@@ -107,24 +107,16 @@
                             <p class="s-text8 p-b-23">
                                 Không có phương pháp vận chuyển có sẵn. Vui lòng kiểm tra kỹ địa chỉ của bạn hoặc liên hệ với chúng tôi nếu bạn cần bất kỳ sự trợ giúp nào.
                             </p>
-                            <span class="s-text19">
-                                Phí vận chuyển:
-                            </span>
 
                             <div class="rs2-select2 rs3-select2 rs4-select2 bo4 of-hidden w-size21 m-t-8 m-b-12">
-                                <select class="selection-2" name="country">
-                                    <option>Chọn một loại tiền tệ ...</option>
-                                    <option>VND</option>
-                                    <option>USD</option>
+                                <select class="selection-2" name="payment_method">
+                                    <option>Phương thức thành toán ...</option>
+                                    <option>Ship COD</option>
                                 </select>
                             </div>
 
-                            <div class="size13 bo4 m-b-12">
-                                <input class="sizefull s-text7 p-l-15 p-r-15" type="text" name="state" placeholder="Tiểu bang / quốc gia">
-                            </div>
-
                             <div class="size13 bo4 m-b-22">
-                                <input class="sizefull s-text7 p-l-15 p-r-15" type="text" name="postcode" placeholder="Mã bưu / Zip">
+                                <input class="sizefull s-text7 p-l-15 p-r-15" type="text" name="address" placeholder="Địa chỉ">
                             </div>
 
                             <div class="size14 trans-0-4 m-b-10">
@@ -141,7 +133,7 @@
                         </span>
 
                         <span class="m-text21 w-size20 w-full-sm">
-                            7.200.000đ
+                            {{ number_format($d->total, 0, '.', ',')}}
                         </span>
                     </div>
 
@@ -150,10 +142,10 @@
                         @foreach($cartItems as $cart)
                             <input type="hidden" name="cart_id" value="{{$cart->id}}">
                             <input type="hidden" name="product_id" value="{{$cart->product_id}}">
-                            <input type="hidden" name="date" value="2023-11-11">
-                            <input type="hidden" name="address" value="alo alo">
-                            <input type="hidden" name="payment_method" value="atsm">
-                            <input type="hidden" name="total" value="1111111">
+                            <input type="hidden" name="date" value="2023-08-17">
+                            <input type="hidden" name="address" value="Cần Thơ">
+                            <input type="hidden" name="payment_method" value="Ship COD">
+                            <input type="hidden" name="total" value="{{$cart->total}}">
                         @endforeach
                         <button type="submit" style="color:white;background-color:black;height:50px" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
                             Tiến hành đặt hàng

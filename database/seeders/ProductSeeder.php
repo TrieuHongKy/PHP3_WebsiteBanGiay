@@ -17,7 +17,7 @@ class ProductSeeder extends Seeder
             [
                 'name'=>'Giày Black Nike ',
                 'slug'=>'giay-black-nike',
-                'quantity'=>'6',
+                'quantity'=>'1',
                 'price'=>'420000',
                 'category_id'=>'1',
                 'description'=>'Giày Nike đen chính hãng, sang trọng',
@@ -28,7 +28,7 @@ class ProductSeeder extends Seeder
             [
                 'name'=>'Giày Adidas Custom F1',
                 'slug'=>'giay-adidas-custom-f1',
-                'quantity'=>'9',
+                'quantity'=>'1',
                 'price'=>'730000',
                 'category_id'=>'1',
                 'description'=>'Giày số 12',
@@ -39,7 +39,7 @@ class ProductSeeder extends Seeder
             [
                 'name'=>'Adidas Red1 MS',
                 'slug'=>'adidas-red1-ms',
-                'quantity'=>'9',
+                'quantity'=>'1',
                 'price'=>'920000',
                 'category_id'=>'1',
                 'description'=>'Giày adidas red 1 ms',
@@ -50,7 +50,7 @@ class ProductSeeder extends Seeder
             [
                 'name'=>'Kính mát Sayho Mytux',
                 'slug'=>'kinh-mat-sayho-mytux',
-                'quantity'=>'11',
+                'quantity'=>'1',
                 'price'=>'420000',
                 'category_id'=>'2',
                 'description'=>'Giày số 12',
@@ -61,7 +61,7 @@ class ProductSeeder extends Seeder
             [
                 'name'=>'Kính Gọng Đen BlackMX Sang Trọng',
                 'slug'=>'kinh-hong-den-blackmx-sang-trong',
-                'quantity'=>'7',
+                'quantity'=>'1',
                 'price'=>'710000',
                 'category_id'=>'2',
                 'description'=>'Kính gọn đen thanh lịch, sang trọng',
@@ -72,7 +72,7 @@ class ProductSeeder extends Seeder
             [
                 'name'=>'Kính Gọng Hồng Quý Phái',
                 'slug'=>'king-gong-hong-quy-phai',
-                'quantity'=>'20',
+                'quantity'=>'1',
                 'price'=>'290000',
                 'category_id'=>'2',
                 'description'=>'Kính gọng hồng',
@@ -83,7 +83,7 @@ class ProductSeeder extends Seeder
             [
                 'name'=>'Túi xách da Kaimy OX',
                 'slug'=>'tui-xach-da-kaimy-ox',
-                'quantity'=>'2',
+                'quantity'=>'1',
                 'price'=>'1420000',
                 'category_id'=>'3',
                 'description'=>'Túi xách da sang trọng, phù hợp làm quà cho các nàng',
@@ -94,7 +94,7 @@ class ProductSeeder extends Seeder
             [
                 'name'=>'Túi xách Hotiwa Xanh Nhỏ Gọn',
                 'slug'=>'tui-xach-hotiwa-xanh-nho-gon',
-                'quantity'=>'6',
+                'quantity'=>'1',
                 'price'=>'1920000',
                 'category_id'=>'3',
                 'description'=>'Túi xách Hotiwa Xanh Nhỏ Gọn',
@@ -105,7 +105,7 @@ class ProductSeeder extends Seeder
             [
                 'name'=>'Mẫu túi mới nhà Prada XP7 ',
                 'slug'=>'mau-tui-moi-nha-prada-xp7',
-                'quantity'=>'3',
+                'quantity'=>'1',
                 'price'=>'2420000',
                 'category_id'=>'3',
                 'description'=>'Mẫu túi mới nhà Prada XP7',

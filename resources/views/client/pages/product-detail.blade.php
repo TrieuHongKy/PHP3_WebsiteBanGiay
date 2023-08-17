@@ -58,7 +58,7 @@
                     </h4>
 
                     <span style="font-size:20px" class="m-text17">
-					{{$prod->price}} VND
+					{{ number_format($prod->price, 0, '.', ',')}} VND
 				</span>
 
                     <p class="s-text8 p-t-10">
